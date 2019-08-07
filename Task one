@@ -1,0 +1,126 @@
+# print 的使用
+print('hello, world')
+print('''line1
+line2
+line3''')
+print(100+200)
+print('100+200')
+print("100+200")
+
+# 赋值运算符
+# python 解释器做了两件事情
+# 1. 在内存中创建了一个ABC的字符串； 2. 在内存中创建了一个a的变量，并将其指向ABC字符串
+a = 'ABC'
+# 创建b变量，并指向a所指向的内容
+b = a
+a = 'XYZ'
+print(b)
+
+# input的使用, 其返回的数据类型时字符串
+input('please input the name:')
+a = input("please input a integer:")
+print(a)
+
+# python是动态语言，变量无需指定数据类型
+# 变量名可由英文大小写，数字以及下划线构成，但是不能用数字开头
+# 整数
+d1 = 123
+# 字符串
+d2 = 'hello, world'
+# 布尔型 python 对大小写敏感，不能用true
+d3 = True
+d4 = False
+# 浮点型
+d5 = 3.1415
+# 空值 None
+# 常量，不能变的变量，如圆周率，习惯用全部大写的变量名来表示
+# 可以对其更改，一般见到全大写的变量名习惯认为是常量
+PI = 3.141592
+# 整数的除法是精确的
+c1 = 10/3
+# 除法的结果是浮点数
+c2 = 9/3
+# // 求商
+c3 = -10//3
+# % 取余
+c4 = -10%3
+print(c1,c2,c3,c4)
+
+# r' '.r" ", r ''' '''（多行） 内部字符串不转义
+s1 = 'hello, \'Adams\''
+s2 = r"hello, 'Adams'"
+s3 = r'''hello, "hassen"
+"bobby"
+"hobby"'''
+print(s1, s2, s3)
+
+# 解释器会省略注释，每一行都是一个语句，当语句以：结尾时，缩进的语句视为代码块
+a = 100
+if a > 200:
+    print(a)
+else:
+    print("This number is less than 200")
+
+# 条件判断
+w = input('please input the weight:')
+h = input('please input the height:')
+weight = float(w)
+height = float(h)
+BMI = weight/(height*height)
+print(BMI)
+if BMI < 18.5:
+    print('过轻')
+elif BMI < 25:
+    print('正常')
+elif BMI < 28:
+    print('过重')
+elif BMI < 32:
+    print('肥胖')
+else:
+    print('严重肥胖')
+
+# dir(X) : 当想对对象X进行处理时，却不知道怎么方法时候，可以用dir来查找，返回对象X可用的方法和属性，X为对象名
+# type(X) : 对象X的类型
+# help(X) : X可以是对象、方法、模块；如果查找某个包的帮助文档，需要先引入该包；
+# import module1 [as name1], module2 [as name2],... 导入指定模块中所有成员，包括变量、函数、类等
+# 在使用时，需要用模块名或者别名作为前缀，即module1.
+# from module import member1 [as name1], member2 [as name2], ... 导入模块中的指定成员
+# 在使用时，无需加任何前缀，直接使用成员名或者别名即可
+
+import numpy as np
+n = 100000
+PI = np.sum(4.0 / np.r_[1:n:4, -3:-n:-4])
+print(PI)
+
+# 算数运算符 ： + 加 - 减 * 乘 / 除 % 取模 // 求商 ** 幂次方
+# 比较运算符： ==  > >= < <= !=
+# 赋值运算符： = *= /= %= += -= **= //=
+x = 5
+print(x)
+x += 5  # x = x+5 = 10
+print(x)
+x -= 5  # x = x-5 = 5
+print(x)
+x *= 5  # x = x*5 = 25
+print(x)
+x /= 5  # x = x/5 = 5
+print(x)
+x //=5  # x = x//5 = 1
+print(x)
+x %=5  # x = x%5 = 1
+print(x)
+x **= 5  # x = x**5 = 1
+print(x)
+
+# 逻辑运算符 and or not
+# 1 and 1 = 1，其余为0； 0 or 0 = 0, 其余为1; not 1 = 0 , not 0 = 1
+# 位运算符 & 按位与 | 按位或 ^ 按位异或 ~ 按位取反 << 左移 >> 右移
+# 1&1 = 1，其余为0； 0|0 = 0， 其余为1； 1^0、0^1 =1, 其余为0；~1=0; 移位：高位丢弃，低位加0
+# 成员运算符： in, not in
+# 身份运算符： is, is not 判断两个标识符(可以用id(x)查看)是不是引用自同一个对象，而 == 比较两个的值是否一样！
+print(id(x))
+print(id(BMI))
+if x is not BMI:
+    print('x and BMI are not the same object ')
+else:
+    print('X and BMI are the same')
