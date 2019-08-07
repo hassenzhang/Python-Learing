@@ -1,0 +1,54 @@
+# 内置数据类型: list 可变有序集合
+classmates = ['hassen', 'bobby', 'hobby']
+print(classmates)
+print(len(classmates))
+
+# 用索引来访问list中的每一个位置的元素，索引从0开始
+print(classmates[0])
+print(classmates[1])
+print(classmates[2])
+print(classmates[-1])  # 倒数第一个元素,即最后一个元素
+print(classmates[len(classmates) - 1])
+# print(classmates[3])  # Index error 错误
+
+# 末尾追加
+classmates.append('snowyang')
+print(classmates)
+# 指定索引号插入
+classmates.insert(0, 'family')
+print(classmates)
+# 末尾删除
+classmates.pop()
+print(classmates)
+# 删除指定索引号的元素
+classmates.pop(1)
+print(classmates)
+
+# list 中的元素可以不同类型
+L1 = ['apple', 123, True]
+L2 = ['apple', [1.23, 3.67], 'orange']
+L3 = []
+# 更改元素
+L1[1] = 'peach'
+print(L1)
+print(len(L2))
+print(L2[1][1])
+print(len(L3))
+
+# 内置数据类型: tuple 不可变有序集合, 主要体现在一旦初始化就不能修改
+# 不可变，更安全
+# 定义的时候，tuple的元素就必须被确定
+classmates = ('hassen', 'bobby', 'hobby')
+print(classmates)
+print(classmates[0])
+# 空tuple
+T1 = ()
+print(len(T1))
+# 1个元素的tuple
+T2 = ('hassen',)
+print(T2)
+# tuple 的不变主要指的是指向永远不变
+T3 = ('a', 'b', ['A', 'B'])
+T3[2][0] = 'X'
+T3[2][1] = 'Y'
+print(T3)
