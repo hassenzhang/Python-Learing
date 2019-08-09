@@ -1,0 +1,110 @@
+# 因为计算机只能处理数字，对于文本，必须把文本转换成数字才能处理，所以就产生了字符编码
+# 1 byte = 8 bits, 一个字节能表示的最大整数是255(11111111)
+# ASCII <= GB2312(中文) : 1个字节
+# Unicode : 2个字节
+# UTF-8 : 可变长编码， 英文1个字节，汉字通常是3个字节，生僻字符4-6个字节; ASCII可以看成是UTF-8的一部分
+# 计算机内存中统一使用Unicode编码，当需要存储到硬盘和传输时，就转换为UTF-8
+# python中，字符串以Unicode编码，从而支持多语言
+print('包含中文的str')
+
+# 获取unicode编码
+print(ord('A'))
+print(ord('中'))
+# 获取编码对应的字符
+print(chr(66))
+print(chr(25991))
+# 格式化字符串 %d 整数； %f浮点型; %s字符串(永远有用，它会将任何数据类型转换为字符串)； %x 16进制整数; %% 符号%
+print('Hello. %s' % 'world')
+print('%2d-%02d' %(2, 1))  # 2位整数，02代表补0
+print('%.2f' %3.1415926)  # .2f代表小数点后2保留2位数
+print('Age: %s. Gender: %s' % (25, True))
+print('%d%%' % 7 )
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# for x in list or tuple or range
+names = ['hassen', 'bobby', 'hobby']  # list
+classes = (1, 2, 3)  # tuple
+L1 = list(range(5))  # range(n): 生成0 1 2 ... n-1这n个整数
+
+for name in names:
+    print(name)
+for c in classes:
+    print(c)
+sum = 0
+for x in L1:
+    sum += x
+print(sum)
+sum = 0
+for x in range(101):
+    sum = sum + x
+print(sum)
+
+# while 条件
+# 100 以内奇数的和
+sum = 0
+n = 1
+while n < 100:
+    sum = sum + n
+    n = n + 2
+print(sum)
+
+# 内置字典 : dict; 使用键-值存储(key - value)
+# key : 字符串、整数等都可以作为key，但list不能作为key，key一定是不可变对象
+# 一个key只能对应一个value, 如果key不在，那么dict会报错
+# dict内部存放的顺序和key放入的顺序没有关系
+# dict可由key直接计算出存放数据的“页码”，即内存地址，直接取出来，速度快，但是内存占有大
+# key 不能重复
+# 创建
+dict0 = {}  #空字典
+print(dict0)
+print(type(dict0))
+# 经典定义
+dict1 = {'hassen': 35, 'bobby': 5, 'hobby': 1, 'hassen': 45, 'hassen': 80}
+print(dict1['hassen'])  #  key 不能重复，输出的是后一个value 80
+print(dict1)
+# 赋值
+dict1['hobby'] = 2
+print(dict1['hobby'])
+# 查询
+print('snowyang' in dict1)
+print(dict1.get('snowyang'))  # key不存在，返回None， 交互式命令行不显示结果; 如果存在，返回value
+print(dict1.get('snowyang', -100))
+print(dict1.get('hassen'))
+print(len(dict1))  # 返回key-value的对数
+# 返回键值对、键、值的列表
+print(dict1.items())
+print(dict1.keys())
+print(dict1.values())
+# 增加
+dict2 = {'snowyang': 35}
+dict1.update(dict2)  # 将dict2添加到dict1
+print(dict1)
+# 删除
+dict1.pop('hassen')
+print(dict1)
+del dict1['hobby']
+print(dict1)
+# 清空字典 dict1.clear()
+
+# set : key的集合，需要一个list作为输入，不存储value以及不可放入可变对象
+# 集合的特性 ： 确定性， 无序性， 互异性
+L1 = ['red', 'orange', 'yellow', 'green', 'blue']
+L2 = ['purple', 'brown', 'red', 'yellow']
+s1 = set(L1)
+s2 = set(L2)
+print(s1)
+print(s2)
+# 添加 add
+s1.add('black')
+print(s1)
+# 删除元素
+s1.remove('blue')
+print(s1)
+# 交集
+print(s1 & s2)  # set
+print(list(s1 & s2))  # list
+# 并集
+print(s1 | s2)
+print(list(s1 | s2))
